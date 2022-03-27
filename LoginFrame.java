@@ -52,7 +52,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         submit.addActionListener(this);
         add(panel, BorderLayout.CENTER);
         setTitle("Please Login Here !");
-        setSize(300, 200);// was 300,100
+        setSize(700, 300);// was 300,100
         setVisible(true);
 
     }
@@ -66,22 +66,22 @@ public class LoginFrame extends JFrame implements ActionListener {
         String userName = userName_text.getText();
         String password = password_text.getText();
         
-       // String accnum = accnum_text.getText();
+        
         
         if  (userName.trim().equals("Brandon") && password.trim().equals("admin")) {
             message.setText(" Hello " + userName
-                    + "Your account number is 1111111111111111");
+            + "\n" + "Your account number is: 111111");
         } 
         else if  (userName.trim().equals("Zach") && password.trim().equals("admin")) {
             message.setText(" Hello " + userName
-                    + "");
+            + "\n" + "Your account number is: 444444");
         } else if  (userName.trim().equals("Henry") && password.trim().equals("admin")) {
             message.setText(" Hello " + userName
-                    + "");
+                    + "\n"+"Your account number is: 333333");
         } 
         else if  (userName.trim().equals("Joel") && password.trim().equals("admin")) {
             message.setText(" Hello " + userName
-                    + "");
+            + "\n" + "Your account number is: 222222");
         } 
         else {
             message.setText(" Invalid user.. ");
