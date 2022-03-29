@@ -1,3 +1,5 @@
+package bank;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -6,12 +8,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import Login.LoginFrame; 
 import javax.swing.JTextField;
 
 public class TheBankApp {
@@ -28,6 +32,7 @@ public class TheBankApp {
     private static JTextField accountNumberField;
     private static JLabel balanceLabel;
     private static JTextField balanceField;
+    private static JButton btnRegister;
 
     private static JButton depositButton, withdrawButton, transferButton, writeButton;
 
@@ -71,6 +76,7 @@ public class TheBankApp {
         withdrawButton = new JButton("Withdraw");
         transferButton = new JButton("Transfer");
         writeButton = new JButton("Write Transactions to File");
+        btnRegister = new JButton("Register");
         depositButton.setEnabled(false);
         withdrawButton.setEnabled(false);
         transferButton.setEnabled(false);
@@ -142,7 +148,15 @@ public class TheBankApp {
                 balanceField.setText(String.format("$ %.2f", owner.getBalance()));
             }
         });
-
+        // regestier button
+        btnRegister.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRegister.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoginFrame info = new LoginFrame();
+				LoginFrame.main(null);
+				loginPanel.setVisible(false);
+			}
+		});
         // action listener for transfer button
         transferButton.addActionListener(new ActionListener() {
             @Override
@@ -183,11 +197,11 @@ public class TheBankApp {
     private static ArrayList<Account> loadAccounts() {
         ArrayList<Account> accs = new ArrayList<>();
 
-        accs.add(new Savings("Brandon", "1111111111111111", 5000));
-        accs.add(new Checking("Joel", "2222222222222222", 3990));
-        accs.add(new Savings("Henry", "3333333333333333", 5000));
-        accs.add(new Checking("Zach", "4444444444444444", 4500));
-        accs.add(new Savings("Admin", "0000000000000000", 0000));
+        accs.add(new Savings("Brandon", "111111", 5000));
+        accs.add(new Checking("Joel", "222222", 3990));
+        accs.add(new Savings("Henry", "333333", 5000));
+        accs.add(new Checking("Zach", "444444", 4500));
+        accs.add(new Savings("Admin", "000000", 0000));
 
         return accs;
     }
@@ -233,5 +247,7 @@ public class TheBankApp {
             JOptionPane.showMessageDialog(null, s + " is not a valid double value!");
             return false;
         }
+        
+		
     }
 }

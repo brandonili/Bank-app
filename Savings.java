@@ -1,3 +1,5 @@
+package bank;
+
 import javax.swing.JOptionPane;
 
 public class Savings extends Account{
